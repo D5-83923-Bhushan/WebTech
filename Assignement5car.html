@@ -1,0 +1,136 @@
+<html>
+<head>
+    <titile></titile>
+
+    <style>
+       .A
+       {
+          position: relative;
+          height: 190px;
+          width: 400px;
+          left: -30px;
+          
+        }
+       .B
+       {
+        position: absolute;
+        height: 40px;
+        width: 730px;
+        top: 170px;
+        left: 0px;
+       }
+       .C
+       {
+        height: 30px;
+        width: 50px;
+        position: absolute;
+        margin-top: 200px;
+       }
+       .bt1
+       {
+          position: relative;
+          margin-left: 15px;
+       }
+       .bt2
+       {
+        left: 460px;
+
+       }
+       
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ84HeV-xrczR-5QBk-2SEgOGeeFQxdllUgTQ&s" alt=""  class="A" id="mycar">
+
+    </div>
+
+    <div style="background-color: black;" class="B"></div>
+    <!-- <input type="button" value="X-axis" onclick="move()" class="C"> -->
+
+
+    <table style="margin-top:30px;">
+        <tr>
+            <td>    
+                X-axis : <input type="text" id="axis">
+               
+                <br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Y-axis : <input type="text" id="axis">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="button" value="Start" id="bt1" onclick="start()">
+
+                <input type="button" value="Stop" id="bt2" onclick="stop()" >
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+       
+        var quearray=new Array();
+        var leftval=-8;
+        var top1=0;
+          var rotate1=0;
+
+        function start()
+        {
+            var movecar=window.setInterval(keepcount,100);
+            quearray.push(movecar);
+            console.log("Created queue"+movecar);
+
+
+        }
+        function stop()
+        {
+
+           for(var i=0;i<quearray.length;i++)
+           {
+               clearInterval(quearray[i]);
+           }
+           
+         
+        }
+        
+        function keepcount()
+        {
+            var ref=document.getElementById("mycar");
+
+            if(leftval>550)
+            {
+
+                top1=top1+10;
+                ref.style.top=top1+"px";
+
+                leftval=leftval+10;
+                ref.style.left=leftval+"px";
+
+
+                rotate1=rotate1+10;
+                ref.style.rotate=rotate1+"deg";
+
+            }
+            else
+            {
+                leftval=leftval+10;
+            ref.style.left=leftval+"px";
+            }
+
+
+        }
+
+         
+    </script>
+
+</body>
+
+</html>
